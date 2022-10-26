@@ -13,12 +13,8 @@ public class PlayerMove : MonoBehaviour
     public float turnTime = 0.1f;
     float turnSmoothVelocity;
     
-    void Start() 
-    {
-
-    }
     
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -30,9 +26,9 @@ public class PlayerMove : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            //Movement currently doesn't work//
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            player.transform.position = player.transform.position + (moveDir.normalized * speed * Time.deltaTime);
+            //player.transform.position = player.transform.position + (moveDir.normalized * speed * Time.deltaTime);
+            rbody.velocity = (moveDir.normalized) * speed;
         }
     }
 }
