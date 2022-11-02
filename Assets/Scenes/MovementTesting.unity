@@ -275,7 +275,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126145420}
-  m_LocalRotation: {x: 0.27675283, y: -0.26285, z: 0.078991815, w: 0.92091155}
+  m_LocalRotation: {x: 0.27675283, y: -0.26284996, z: 0.078991786, w: 0.9209116}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -975,6 +975,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 778758819}
   holdBox: {fileID: 97013922}
+  holding: 0
+  heldItem: {fileID: 0}
 --- !u!1 &966186805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371557777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 2.44}
+  m_LocalPosition: {x: -3.176, y: 0.15, z: 2.44}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []

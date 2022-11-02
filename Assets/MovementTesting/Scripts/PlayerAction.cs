@@ -7,6 +7,7 @@ public class PlayerAction : MonoBehaviour
     public GameObject player;
     public GameObject holdBox;
     public bool holding;
+    public GameObject heldItem;
 
     void Start()
     {
@@ -18,15 +19,27 @@ public class PlayerAction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Collider[] hitColliders = Physics.OverlapSphere(holdBox.transform.position, 1f);
-            foreach (var hitCollider in hitColliders)
+            holding = !holding;
+
+            if(holding == true)
             {
-                if(hitCollider.CompareTag("Objects"))
+                Collider[] hitColliders = Physics.OverlapSphere(holdBox.transform.position, 1f);
+                foreach (var hitCollider in hitColliders)
                 {
-                    Debug.Log("Object Interaction");
-                    hitCollider.transform.position = holdBox.transform.position;
+                    if(hitCollider.CompareTag("Objects"))
+                    {
+                        Debug.Log("Object Interaction");
+                        holding = true;
+                        heldItem = hitCollider.gameObject;
+                    }
                 }
             }
+        }
+
+        if(holding == true)
+        {
+            heldItem.transform.position = holdBox.transform.position;
+            //heldItem.transform.SetParent(holdBox.transform);
         }
     }
 }
