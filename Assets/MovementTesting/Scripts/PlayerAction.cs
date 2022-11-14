@@ -19,12 +19,12 @@ public class PlayerAction : MonoBehaviour
     {
         if(holding == true)
         {
-            heldRB = heldItem.GetComponent<RigidBody>();
+            heldRB = heldItem.GetComponent<Rigidbody>();
             heldRB.useGravity = false;
             heldRB.drag = 10;
             heldRB.constraints = RigidbodyConstraints.FreezeRotation;
 
-            heldItem.transform.SetParent(holdBox); 
+            //heldItem.transform.SetParent(holdBox); 
         }
 
         if(holding == false) {
