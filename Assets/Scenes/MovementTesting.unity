@@ -149,8 +149,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97013922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 1.005}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.25, z: 1.5}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 778758820}
@@ -621,7 +621,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308833965}
-  m_LocalRotation: {x: 0.2934579, y: -0.26136962, z: 0.08375981, w: 0.91572523}
+  m_LocalRotation: {x: 0.29345793, y: -0.26136968, z: 0.08375985, w: 0.91572523}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -977,6 +977,8 @@ MonoBehaviour:
   holdBox: {fileID: 97013922}
   holding: 0
   heldItem: {fileID: 0}
+  heldRB: {fileID: 0}
+  pickUpForce: 0
 --- !u!1 &966186805
 GameObject:
   m_ObjectHideFlags: 0

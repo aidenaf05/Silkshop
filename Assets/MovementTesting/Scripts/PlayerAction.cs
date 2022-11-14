@@ -9,36 +9,54 @@ public class PlayerAction : MonoBehaviour
     public bool holding;
     public GameObject heldItem;
     public Rigidbody heldRB;
+    public float pickUpForce;
 
     void Start()
     {
         holding = false;
+        pickUpForce = 3f;
     }
 
     void PickupObject() 
     {
         if(holding == true)
         {
-            heldRB = heldItem.GetComponent<RigidBody>();
+            heldRB = heldItem.GetComponent<Rigidbody>();
             heldRB.useGravity = false;
             heldRB.drag = 10;
             heldRB.constraints = RigidbodyConstraints.FreezeRotation;
 
-            heldItem.transform.SetParent(holdBox); 
+            //heldItem.transform.SetParent(holdBox); 
         }
+    }
 
-        if(holding == false) {
-            heldRB.useGravity = true;
-            heldRB.drag = 1;
-            heldRB.constraints = RigidbodyConstraints.None;
+    void DropObject()
+    {
+        heldRB.useGravity = true;
+        heldRB.drag = 1;
+        heldRB.constraints = RigidbodyConstraints.None;
 
-            heldItem.transform.SetParent(null); 
-            heldItem = null;
+        //heldItem.transform.SetParent(null); 
+        heldItem = null;
+        heldRB = null;
+    }
+
+    void MoveObject()
+    {
+        if(Vector3.Distance(heldItem.transform.position, holdBox.transform.position) > 0.1f)
+        {
+            Vector3 moveDirection = (holdBox.transform.position - heldItem.transform.position);
+            heldRB.AddForce(moveDirection * pickUpForce);
         }
     }
 
     void Update()
     {
+        if(heldItem != null) 
+        {
+            MoveObject();        
+        }
+    
         if(Input.GetKeyDown(KeyCode.E))
         {
             holding = !holding;
@@ -54,8 +72,14 @@ public class PlayerAction : MonoBehaviour
                         holding = true;
                         heldItem = hitCollider.gameObject;
                         PickupObject();
+                        heldItem.transform.position = holdBox.transform.position;
                     }
                 }
+            }
+
+            if(holding == false)
+            {
+                DropObject();
             }
         }
 
