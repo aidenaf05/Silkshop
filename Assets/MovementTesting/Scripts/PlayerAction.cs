@@ -6,10 +6,13 @@ public class PlayerAction : MonoBehaviour
 {
     public GameObject player;
     public GameObject holdBox;
+
     public bool holding;
     public GameObject heldItem;
     public Rigidbody heldRB;
     public float pickUpForce;
+
+    public GameObject webproj;
 
     void Start()
     {
@@ -25,8 +28,6 @@ public class PlayerAction : MonoBehaviour
             heldRB.useGravity = false;
             heldRB.drag = 10;
             heldRB.constraints = RigidbodyConstraints.FreezeRotation;
-
-            //heldItem.transform.SetParent(holdBox); 
         }
     }
 
@@ -36,14 +37,13 @@ public class PlayerAction : MonoBehaviour
         heldRB.drag = 1;
         heldRB.constraints = RigidbodyConstraints.None;
 
-        //heldItem.transform.SetParent(null); 
         heldItem = null;
         heldRB = null;
     }
 
     void MoveObject()
     {
-        if(Vector3.Distance(heldItem.transform.position, holdBox.transform.position) > 0.1f)
+        if(Vector3.Distance(heldItem.transform.position, holdBox.transform.position) > 0f)
         {
             Vector3 moveDirection = (holdBox.transform.position - heldItem.transform.position);
             heldRB.AddForce(moveDirection * pickUpForce);
@@ -81,6 +81,11 @@ public class PlayerAction : MonoBehaviour
             {
                 DropObject();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Instantiate(webproj, holdBox.transform.position, player.transform.rotation);
         }
 
     }
