@@ -12,9 +12,13 @@ public class WebProjectile : MonoBehaviour
         projSpeed = 20f;
     }
 
-    void OnTriggerEnter()
+    void OnCollisionEnter(Collision collision)
     {
-
+        if(collision.gameObject.CompareTag("Objects"))
+        {
+            //collision.gameObject.Rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+        }
+        Destroy(projectile);
     }
 
     void Update()
