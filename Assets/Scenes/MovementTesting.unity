@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97013922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 1.3}
+  m_LocalPosition: {x: 0, y: 0.25, z: 1.5}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 838983300}
   m_Layer: 0
   m_Name: Target
-  m_TagString: Objects
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1877,7 +1877,7 @@ GameObject:
   - component: {fileID: 1371557778}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Objects
+  m_TagString: Holdable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2118,7 +2118,7 @@ GameObject:
   - component: {fileID: 1412712523}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Objects
+  m_TagString: Holdable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

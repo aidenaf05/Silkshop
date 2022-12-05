@@ -66,7 +66,7 @@ public class PlayerAction : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(holdBox.transform.position, 1f);
                 foreach (var hitCollider in hitColliders)
                 {
-                    if(hitCollider.CompareTag("Objects"))
+                    if(hitCollider.CompareTag("Holdable"))
                     {
                         Debug.Log("Object Interaction");
                         holding = true;

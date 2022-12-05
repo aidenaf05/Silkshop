@@ -14,9 +14,10 @@ public class WebProjectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Objects"))
+        if(collision.gameObject.CompareTag("NPC"))
         {
-            //collision.gameObject.Rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+            TargetTest.webbed = true;
+            Debug.Log("Webbed");
         }
         Destroy(projectile);
     }
